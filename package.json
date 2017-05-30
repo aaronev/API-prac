@@ -4,7 +4,9 @@
   "description": "api-prac",
   "main": "app.js",
   "scripts": {
-    "test": "npm t"
+    "test": "npm test",
+    "start": "nodemon app.js",
+    "db:initialize": "psql music -f ./models/schema.sql"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,11 @@
   "bugs": {
     "url": "https://github.com/aaronev/API-prac/issues"
   },
-  "homepage": "https://github.com/aaronev/API-prac#readme"
+  "homepage": "https://github.com/aaronev/API-prac#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "pg": "^6.2.3",
+    "pg-promise": "^5.8.1"
+  }
 }
