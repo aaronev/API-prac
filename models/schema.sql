@@ -1,8 +1,3 @@
-DROP DATABASE IF EXISTS music;
-CREATE DATABASE music;
-
-\c
-
 DROP TABLE IF EXISTS artists;
 CREATE TABLE artists (
   id INTEGER PRIMARY KEY,
@@ -35,9 +30,13 @@ COPY songs FROM '/Users/aaronvillanueva/Desktop/api-prac/models/songs.csv' DELIM
 
 CREATE TABLE playlists (
   title TEXT,
-  song_id INTEGER REFERENCES songs,
   album_id INTEGER REFERENCES albums,
   artist_id INTEGER REFERENCES artists
 );
 
 COPY playlists FROM '/Users/aaronvillanueva/Desktop/api-prac/models/playlists.csv' DELIMITER ',';
+
+SELECT * FROM songs 
+JOIN albums ON songs.album_id = albums.id
+JOIN artists ON albums.artist_id = artists.id
+JOIN playlists ON albums.id = playlists.album_id

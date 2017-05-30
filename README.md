@@ -2,6 +2,7 @@
 
 ## Getting Started
 - npm install
+- createdb music (must have psql)
 - $ psql music -f ./models/schema.sql (postgres)
 - npm start (nodemon)
 
@@ -88,12 +89,12 @@ These are the basic specs for "Web APIs". If you complete these specs, try takin
 
 - [x] App uses PostgreSQL for data persistence
 - [x] Database can store data about artists, albums, songs, and playlists
-- [ ] Database uses multiple tables with appropriate foreign keys
-- [ ] Database uses join tables for any many-to-many relationships
-- [ ] Artists have a name and genre
-- [ ] Albums have a title, artist, and year
-- [ ] Songs have a title, album, length (in seconds), and track number
-- [ ] Playlists have a title and are associated with a list of songs
+- [x] Database uses multiple tables with appropriate foreign keys
+- [x] Database uses join tables for any many-to-many relationships
+- [x] Artists have a name and genre
+- [x] Albums have a title, artist, and year
+- [x] Songs have a title, album, length (in seconds), and track number
+- [x] Playlists have a title and are associated with a list of songs
 
 #### API Specs
 

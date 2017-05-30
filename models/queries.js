@@ -3,7 +3,7 @@ const connectionString = 'postgres://localhost:5432/music';
 const db = pgp(connectionString);
 
 function getAllSongs() {
-	return db.any('SELECT * FROM music')
+	return db.any('SELECT * FROM songs')
 }
 
 function addSong(song, author, genre) {
