@@ -1,32 +1,43 @@
 DROP DATABASE IF EXISTS music;
 CREATE DATABASE music;
 
-\c music
+\c
 
 DROP TABLE IF EXISTS artists;
 CREATE TABLE artists (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  name VARCHAR(20),
-  genre VARCHAR(20)
+  id INTEGER PRIMARY KEY,
+  name TEXT,
+  genre TEXT
 );
+
+-- note: paths differ depending on user
+COPY artists FROM '/Users/aaronvillanueva/Desktop/api-prac/models/artists.csv' DELIMITER ',';
 
 DROP TABLE IF EXISTS albums;
 CREATE TABLE albums (
-  artist VARCHAR(20),
-  title VARCHAR(20),
+  id INTEGER PRIMARY KEY,
+  artist_id INTEGER REFERENCES artists,
+  title TEXT,
   year INTEGER
 );
 
+COPY albums FROM '/Users/aaronvillanueva/Desktop/api-prac/models/albums.csv' DELIMITER ',';
+
 DROP TABLE IF EXISTS songs;
 CREATE TABLE songs (
-  title VARCHAR(20),
-  album VARCHAR(20),
+  title TEXT,
+  album_id INTEGER REFERENCES albums,
   length_sec INTEGER,
-  track_num INTEGER
+  track_no INTEGER
 );
 
-DROP TABLE IF EXISTS playlists;
+COPY songs FROM '/Users/aaronvillanueva/Desktop/api-prac/models/songs.csv' DELIMITER ',';
+
 CREATE TABLE playlists (
-  title VARCHAR(20),
-  song VARCHAR(20)
+  title TEXT,
+  song_id INTEGER REFERENCES songs,
+  album_id INTEGER REFERENCES albums,
+  artist_id INTEGER REFERENCES artists
 );
+
+COPY playlists FROM '/Users/aaronvillanueva/Desktop/api-prac/models/playlists.csv' DELIMITER ',';

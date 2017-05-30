@@ -2,7 +2,7 @@
 
 ## Getting Started
 - npm install
-- npm db:initialize (postgres)
+- $ psql music -f ./models/schema.sql (postgres)
 - npm start (nodemon)
 
 
