@@ -1,0 +1,19 @@
+{
+  "name": "api-prac",
+  "version": "1.0.0",
+  "description": "api-prac",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm t"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aaronev/API-prac.git"
+  },
+  "author": "Aaron Villanueva",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aaronev/API-prac/issues"
+  },
+  "homepage": "https://github.com/aaronev/API-prac#readme"
+}
