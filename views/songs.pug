@@ -5,8 +5,8 @@ html
     title Music API
     link(type='text/css', rel='stylesheet', href='./public/style.css')
   body
-    h2 Playlists
-    -for (let i = 0; i < playlist.length; i++) {
-        h3= playlist[i].title
+    h2 Songs
+    -for (let i = 0; i < songs.length; i++) {
+      h3= songs[i].title
     -}
     script(type='text/javascript', src='./public/main.js')

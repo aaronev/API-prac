@@ -2,9 +2,17 @@ const pgp = require('pg-promise')();
 const connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/music'
 const db = pgp(connectionString);
 
+function getAllInfo() {
+  return db.manyOrNone( 
+    `SELECT * FROM playlists
+    JOIN songs ON playlists.song_id = songs.id
+    JOIN albums ON songs.album_id = albums.id
+    JOIN artists ON albums.artist_id = artists.id`
+)}
+
 //Artists
 function getAllArtists() {
-  return db.any('SELECT * FROM artists;')
+  return db.any('SELECT DISTINCT name FROM artists;')
 }
 
 function getArtistsByID(id) {
@@ -29,7 +37,7 @@ function deleteArtists(id) {
 
 //Albums
 function getAllAlbums() {
-  return db.any('SELECT * FROM Albums;')
+  return db.any('SELECT DISTINCT title FROM albums;')
 }
 
 function getAlbumsByID(id) {
@@ -54,7 +62,7 @@ function deleteAlbums(id) {
 
 //Songs
 function getAllSongs() {
-  return db.any('SELECT * FROM Songs;')
+  return db.any('SELECT * FROM songs;')
 }
 
 function getSongsByID(id) {
@@ -79,7 +87,7 @@ function deleteSongs(id) {
 
 //Playlists
 function getAllPlaylists() {
-  return db.any('SELECT * FROM playlists;')
+  return db.any('SELECT DISTINCT title FROM playlists;')
 }
 
 function getSongsByID(id) {
@@ -103,5 +111,9 @@ function deleteSongs(id) {
 }
 
 module.exports = {
+  getAllInfo,
   getAllArtists,
+  getAllPlaylists,
+  getAllAlbums,
+  getAllSongs
 };

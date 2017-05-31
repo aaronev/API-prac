@@ -10,7 +10,6 @@ CREATE TABLE artists (
 INSERT INTO artists (name, genre) VALUES ( 'Paul', 'Nania');
 INSERT INTO artists (name, genre) VALUES ( 'Some Artists', 'A Cool Genre');
 INSERT INTO artists (name, genre) VALUES ( 'Another Artists', 'Cooler Genre');
-INSERT INTO artists (name, genre) VALUES ( 'Snoop Dog', 'R&B');
 
 DROP TABLE IF EXISTS albums;
 CREATE TABLE albums (
@@ -52,7 +51,6 @@ INSERT INTO songs (title, album_id, length_sec, track_no) VALUES ('Jimmy', 5, 20
 INSERT INTO songs (title, album_id, length_sec, track_no) VALUES ('Hussel', 5, 265, 5);
 
 CREATE TABLE playlists (
-  id SERIAL PRIMARY KEY,
   title VARCHAR(60),
   song_id INTEGER REFERENCES songs
 );
@@ -72,4 +70,3 @@ INSERT INTO playlists (title, song_id) VALUES ('Romantic Nitez', 12);
 INSERT INTO playlists (title, song_id) VALUES ('Spacey', 13); 
 INSERT INTO playlists (title, song_id) VALUES ('Spacey', 14); 
 INSERT INTO playlists (title, song_id) VALUES ('Spacey', 15); 
-
