@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    title Music API
+    link(type='text/css', rel='stylesheet', href='./public/style.css')
+  body
+    -for (let i = 0; i < playlist.length; i++) {
+      h2= playlist[i].name
+    -}
+    #addMusicForm
+      form
+        fieldset
+        input(type='submit', name='***************')
+    script(type='text/javascript', src='./public/main.js')

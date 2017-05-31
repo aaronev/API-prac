@@ -1,5 +1,5 @@
 const pgp = require('pg-promise')();
-const connectionString = 'postgres://localhost:5432/music';
+const connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/music'
 const db = pgp(connectionString);
 
 //Artists
@@ -103,9 +103,5 @@ function deleteSongs(id) {
 }
 
 module.exports = {
-  getAllSongs,
-  addSong,
-  updateSong,
-  findSong,
-  deleteSong
+  getAllArtists,
 };

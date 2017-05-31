@@ -1,4 +1,4 @@
--- Note: I did not work on the INIT 4 GOAL, which was required. I had created  
+-- Note: I did not work on the INIT 4 GOAL, which was required. I had to created database.
 
 DROP TABLE IF EXISTS artists;
 CREATE TABLE artists (
