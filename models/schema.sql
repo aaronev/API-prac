@@ -51,6 +51,7 @@ INSERT INTO songs (title, album_id, length_sec, track_no) VALUES ('Jimmy', 5, 20
 INSERT INTO songs (title, album_id, length_sec, track_no) VALUES ('Hussel', 5, 265, 5);
 
 CREATE TABLE playlists (
+  id SERIAL PRIMARY KEY,
   title VARCHAR(60),
   song_id INTEGER REFERENCES songs
 );

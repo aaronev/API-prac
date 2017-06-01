@@ -3,10 +3,24 @@ html
   head
     meta(charset='UTF-8')
     title Music API
-    link(type='text/css', rel='stylesheet', href='./public/style.css')
+    link(type='text/css', rel='stylesheet', href='./style.css')
   body
+    ul
+      li
+        form(action='/')
+          input(type='submit', value='Playlists')
+      li
+        form(action='/artists')
+          input(type='submit', value='Artists')
+      li
+        form(action='/albums')
+          input(type='submit', value='Albums')
     h2 Songs
+    h3= found
+    form(action='/songs' method='post')
+      input(name='id', placeholder='Find By Id')
+      input(name='tableName', value='songs', type='submit')
     -for (let i = 0; i < songs.length; i++) {
       h3= songs[i].title
     -}
-    script(type='text/javascript', src='./public/main.js')
+    script(type='text/javascript', src='./main.js')
