@@ -38,7 +38,7 @@ function deleteArtists(name) {
 
 //Albums
 function getAllAlbums() {
-  return db.any('SELECT DISTINCT title FROM albums;')
+  return db.any('SELECT * FROM albums;')
 }
 
 function getAlbumsByName(name) {
@@ -80,7 +80,7 @@ function deleteSongs(id) {
 
 //Playlists
 function getAllPlaylists() {
-  return db.any('SELECT DISTINCT title FROM playlists;')
+  return db.any('SELECT * FROM playlists;')
 }
 
 function getSongsByName(name) {
