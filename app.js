@@ -6,16 +6,20 @@ const port = process.env.PORT || 3000
 const app = express()
 
 let artists
+let albums
+let songs
+
 request('http://localhost:3000/artists', (error, response, body) => {
   artists = body
 })
 
-let albums;
+
 request('http://localhost:3000/albums', (error, response, body) => {
   albums = body
+
 })
 
-let songs;
+
 request('http://localhost:3000/songs', (error, response, body) => {
   songs = body
 })
@@ -29,13 +33,21 @@ app.route('/')
   .get((req, res, next) => {
     queries.getAllPlaylists()
     .then(lists => {
-      console.log('lists', lists[0].title)
       res.render('index', {
         playlists: lists,
         artists: JSON.parse(artists),
-        albums: JSON.parse(albums),
+        albums:  JSON.parse(albums),
         songs: JSON.parse(songs)
       })
+    })
+    .catch(next)
+  })
+
+app.route('/playlists')
+  .get((req, res, next) => {
+    queries.getAllPlaylists()
+    .then(lists => {
+      res.send(lists)
     })
     .catch(next)
   })
@@ -52,8 +64,8 @@ app.route('/artists')
 app.route('/albums')
   .get((req, res, next) => {
     queries.getAllAlbums()
-    .then(albums => {
-      res.send(albums)
+    .then(album => {
+      res.send(album)
     })
     .catch(next)
   })
@@ -66,7 +78,6 @@ app.route('/songs')
     })
     .catch(next)
   })
-
 
 app.listen(port, () => {
   console.log(`On port ${port}!`)
