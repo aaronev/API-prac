@@ -130,10 +130,12 @@ Users of the API can...
 
 #### Deployment
 
-- [ ] App is deployed to Heroku
-- [ ] Link to deployed app is added to README
-- [ ] Deployed app uses [Heroku Postgres](https://www.heroku.com/postgres) for persistence
-- [ ] Deployed app provides the same API functionality as local version
+Note: It's been [DEPLOYED](https://api-music-prac.herokuapp.com/) but there are issues 
+		I even added the postgres info to procfile
+- [x] App is deployed to Heroku
+- [x] Link to deployed app is added to README
+- [x] Deployed app uses [Heroku Postgres](https://www.heroku.com/postgres) for persistence
+- [x] Deployed app provides the same API functionality as local version
 
 ### Stretch
 
