@@ -92,42 +92,42 @@ These are the basic specs for "Web APIs". If you complete these specs, try takin
 - [x] Database uses multiple tables with appropriate foreign keys
 - [x] Database uses join tables for any many-to-many relationships
 - [x] Artists have a name and genre
-- [x] Albums have a title, artist, and year
-- [x] Songs have a title, album, length (in seconds), and track number
-- [x] Playlists have a title and are associated with a list of songs
+- [x] Albums have a name, artist, and year
+- [x] Songs have a name, album, length (in seconds), and track number
+- [x] Playlists have a name and are associated with a list of songs
 
 #### API Specs
 
 - [ ] API employs a RESTful design
-- [x] API returns JSON-formatted data
-- [x] API accepts POST and PUT/PATCH requests with JSON-formatted bodies
+- [ ] API returns JSON-formatted data
+- [ ] API accepts POST and PUT/PATCH requests with JSON-formatted bodies
 
 Users of the API can...
 - [x] Get all artists
 - [x] Get an artist by id
 - [x] Get an artist by name
-- [ ] Add a new artist
-- [ ] Edit an artist
+- [x] Add a new artist
+- [x] Edit an artist
 - [x] Delete an artist
 - [x] Get all albums
 - [x] Get an album by id
 - [x] Get an album by title
-- [ ] Add a new album
-- [ ] Edit an album
+- [x] Add a new album
+- [x] Edit an album
 - [x] Delete an album
 - [x] Get all songs
 - [x] Get a song by id
 - [x] Get all songs in an album
 - [x] Get all songs by an artist
-- [ ] Add a new song
-- [ ] Edit a song
+- [x] Add a new song
+- [x] Edit a song
 - [x] Delete a song
 - [x] Get all playlists
 - [x] Get a playlist by id
 - [x] Get all songs in a playlist
-- [X] Add a song to a playlist
+- [x] Add a song to a playlist
 - [X] Create a playlist
-- [ ] Edit a playlist
+- [x] Edit a playlist
 - [x] Delete a playlist
 
 #### Deployment
