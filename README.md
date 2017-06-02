@@ -104,29 +104,27 @@ These are the basic specs for "Web APIs". If you complete these specs, try takin
 
 Users of the API can...
 - [x] Get all artists
-- [x] Get an artist by id
-- [x] Get an artist by name
+- [x] Get an artist by id or name
 - [x] Add a new artist
 - [x] Edit an artist
 - [x] Delete an artist
 - [x] Get all albums
-- [x] Get an album by id
-- [x] Get an album by title
+- [x] Get an album by id or name
 - [x] Add a new album
 - [x] Edit an album
 - [x] Delete an album
 - [x] Get all songs
-- [x] Get a song by id
+- [x] Get a song by id or name
 - [x] Get all songs in an album
 - [x] Get all songs by an artist
 - [x] Add a new song
 - [x] Edit a song
 - [x] Delete a song
 - [x] Get all playlists
-- [x] Get a playlist by id
+- [x] Get a playlist by id or name
 - [x] Get all songs in a playlist
 - [x] Add a song to a playlist
-- [X] Create a playlist
+- [x] Create a playlist
 - [x] Edit a playlist
 - [x] Delete a playlist
 
