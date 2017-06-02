@@ -5,102 +5,41 @@ html
     title Music API
     link(type='text/css', rel='stylesheet', href='./style.css')
   body
-    h1 Playlist API
-    div
-      input.find(placeholder='Find (CaSe sEnseTive)')
-      input.foundId(type='submit')
-      h3.found
-      h2 Playlists 
-      table
-        fieldset
-          legend Add To Playlist
-          input.playlistName(placeholder='Playlists')
-          input.songToAdd(placeholder='Song Id')
-          input.addToPlaylist(type="submit")
-        tr
-          th Id
-          th Playlist Name
-          th Song Id
-        -for (let i = 0; i < playlists.length; i++) {
-        tr.info
-          td.findId= playlists[i].id
-          td.findTitle= playlists[i].title
-          td= playlists[i].song_id
-          td 
-            button.editButton Edit
-            button.deleteInfo Delete
-        -}
-      .addNewList
-    div
-      h2 All Artists
-      table
-        fieldset
-          legend Add To Artists
-          input.artistName(placeholder='Name')
-          input.genre(placeholder='Genre')
-          input.addToArtists(type="submit")
-        tr
-          th Id
-          th Name
-          th Genre
-        -for (let i = 0; i < artists.length; i++) {
-        tr.info
-          td= artists[i].id
-          td= artists[i].name
-          td= artists[i].genre
-          td 
-            button.editButton Edit
-            button.deleteInfo Delete
-        -}
-    div
-      h2 All Albums
-      .addToAlbums
-      fieldset
-        legend Add To Albums
-        input(placeholder='Playlists')
-        input(placeholder='Song')
-        input.addInfo(type="submit")
-      table
-        tr
-          th Id
-          th Artists Id
-          th Title
-          th Year
-        -for (let i = 0; i < albums.length; i++) {
-        tr.info
-          td= albums[i].id
-          td= albums[i].artist_id
-          td= albums[i].title
-          td= albums[i].year
-          td 
-            button.editButton Edit
-            button.deleteInfo Delete
-        -}
-    div
-      h2 All Songs
-      .addToSongs
-      fieldset
-        legend Add To Playlist
-        input(placeholder='Playlists')
-        input(placeholder='Song')
-        input.addInfo(type="submit")
-      table
-        tr
-          th Id
-          th Title
-          th Album Id
-          th Length (Seconds)
-          th Track Number
-        -for (let i = 0; i < songs.length; i++) {
-        tr.info
-          td= songs[i].id
-          td= songs[i].title
-          td= songs[i].album_id
-          td= songs[i].length_sec
-          td= songs[i].track_no
-          td 
-            button.editButton Edit
-            button.deleteInfo Delete
-        -}
-    script(src='https://code.jquery.com/jquery-3.2.1.min.js')
-    script(type='text/javascript', src='./main.js')
+    <h1>API Music</h1>
+    <h2>Get Info</h2>
+    <p>http://url/playlists</p>
+    <p>http://url/artists</p>
+    <p>http://url/albums</p>
+    <p>http://url/songs</p>
+    <h2>Get Info By Id</h2>
+    <p>http://url/playlists/:id</p>
+    <p>http://url/artists/:id</p>
+    <p>http://url/albums/:id</p>
+    <p>http://url/songs/:id</p>
+    <h2>Add Info</h2>
+    <h3>Post Request Required</h3>
+    <h4>Appears to the path requested</h4>
+    <p>http://url/playlists</p>
+    <p>http://url/artists</p>
+    <p>http://url/albums</p>
+    <p>http://url/songs</p>
+    <h2>Edit Info</h2>
+    <h3>Put Request Required</h3>
+    <h4>Appears to the path requested</h4>
+    <p>http://url/playlists/:id</p>
+    <p>http://url/artists/:id</p>
+    <p>http://url/albums/:id</p>
+    <p>http://url/songs/:id</p>
+    <h2>Delete Info</h2>
+    <h3>Delete Request Required</h3>
+    <p>http://url/playlists/:id</p>
+    <p>http://url/artists/:id</p>
+    <p>http://url/albums/:id</p>
+    <p>http://url/songs/:id</p>
+    <h4>Disappears from the path requested</h4>
+    <p>http://url/playlists</p>
+    <p>http://url/artists</p>
+    <p>http://url/albums</p>
+    <p>http://url/songs</p>
+
+ 

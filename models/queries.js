@@ -14,81 +14,78 @@ function deleteInfo(id, tableName) {
   return db.none(`DELETE FROM ${tableName} WHERE id = ${id};`)
 }
 function findByName(name, tableName) {
-  return db.any(`SELECT * FROM ${tableName} WHERE name = ${name};`)
+  return db.any(`SELECT * FROM ${tableName} WHERE name = $1;`, name)
 }
 
 //Add 
 
 function addArtist(name, genre) {
-  return db.none(`INSERT INTO artists VALUES (${name}, ${genre});`)
+  return db.none(`INSERT INTO artists (name, genre) VALUES (${name}, ${genre});`)
 }
-function addAlbum(artistId, title, year) {
-  return db.none(`INSERT INTO albums VALUES (${artistId}, ${title}, ${year});`)
+function addAlbum(artistId, name, year) {
+  return db.none(`INSERT INTO albums (artist_id, name, year) VALUES (${artistId}, ${name}, ${year});`)
 }
 function addPlaylist(name, genre) {
-  return db.none(`INSERT INTO playlists VALUES (${name}, ${genre});`)
+  return db.none(`INSERT INTO playlists (name) VALUES (${name}, ${genre});`)
 }
-function addSong(title, album_id, length_sec, track_no) {
-  return db.none(`INSERT INTO Songs VALUES (${title}, ${album_id}, ${length_sec}, ${track_no});`)
+function addSong(playlist_id, name, album_id, length_sec, track_no) {
+  return db.none(`INSERT INTO Songs (playlist_id, name, album_id, length_sec, track_no) 
+    VALUES (${playlist_id}, ${name}, ${album_id}, ${length_sec}, ${track_no});`)
 }
 
-//Update
-
-function updatePlaylist(id, title) {
-  return db.none(`UPDATE Songs SET title = ${title} WHERE id = ${id};`)
-}
-function updateArtist(id, name, genre) {
-  return db.none(
-    `UPDATE artists SET name = ${name}, genre = ${genre} WHERE id = ${id};`)
-}
-function updateAlbum(id, artistId, title, year) {
-  return db.none(
-    `UPDATE Albums SET artist_id = ${artistId}, 
-    title = ${title},
-    year = ${year}
-    WHERE id = ${id};`
-  )
-}
-function updateSong(id, title, album_id, length_sec, track_no) {
-  return db.none(
-    `UPDATE songs 
-    SET name = ${name}, 
-      title = ${title}, 
-      album_id = ${album_id},
-      length_sec = ${length_sec},
-      track_no = ${track_no}
-    WHERE id = ${id};`
-  )
-}
 
 //JOINS & Nested SELECTS
 
 function getArtistSongs(id) {
   return db.any(
-    `SELECT songs.title 
-    JOIN albums 
-    ON artist.id = albums.artist_id
-    JOIN songs 
-    ON abbums.id = song.album_id
-    WHERE artist.id = ${id};`
+    `SELECT songs.name FROM songs 
+    JOIN albums ON songs.album_id = albums.id
+    JOIN artists ON albums.artist_id = artists.id
+    WHERE artists.id = ${id}`
   )
 }
 function getAlbumSongs(id) {
-  return db.any(`SELECT songs.title 
-    JOIN song 
-    ON albums.id = songs.album_id
-    FROM albums
-    WHERE albums.id = ${id}`)
+  return db.any(
+    `SELECT songs.name FROM songs
+    JOIN albums ON albums.id = songs.album_id
+    WHERE albums.id = ${id}`
+  )
 }
-function getPlaylistSongs(title) {
-  return db.any(`SELECT songs.title FROM playlists 
-    JOIN songs ON playlists.song_id = songs.id
-    WHERE title = ${title}`)
+function getPlaylistSongs(id) {
+  return db.any(
+    `SELECT songs.name FROM playlists 
+    JOIN songs ON playlists.id = songs.playlist_id
+    WHERE playlists.id = ${id}`
+  )
 }
-function addSongToPlaylists(title, albumId, lengthSec, trackNum, listName) {
-  addSong(title, albumId, lengthSec, trackNum)
- return db.none( `INSERT INTO playlists (title, song_id) 
-    VALUES (${listName}, (SELECT id FROM songs WHERE title = ${title}));`)
+
+//Update
+
+function updatePlaylist(id, name) {
+  return db.none(`UPDATE Songs SET name = ${name} WHERE id = ${id};`)
+}
+function updateArtist(id, name, genre) {
+  return db.none(
+    `UPDATE artists SET name = ${name}, genre = ${genre} WHERE id = ${id};`)
+}
+function updateAlbum(id, artistId, name, year) {
+  return db.none(
+    `UPDATE Albums SET artist_id = ${artistId}, 
+    name = ${name},
+    year = ${year}
+    WHERE id = ${id};`
+  )
+}
+function updateSong(id, playlist_id, name, album_id, length_sec, track_no) {
+  return db.none(
+    `UPDATE songs 
+    SET name = ${name}, 
+      playlist_id = ${playlist_id}
+      album_id = ${album_id},
+      length_sec = ${length_sec},
+      track_no = ${track_no}
+    WHERE id = ${id};`
+  )
 }
 
 module.exports = {
@@ -100,7 +97,6 @@ module.exports = {
   addAlbum,
   addPlaylist,
   addSong,
-  addSongToPlaylists,
   updatePlaylist,
   updateArtist,
   updateAlbum,

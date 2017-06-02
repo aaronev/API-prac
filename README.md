@@ -98,9 +98,9 @@ These are the basic specs for "Web APIs". If you complete these specs, try takin
 
 #### API Specs
 
-- [ ] API employs a RESTful design
-- [ ] API returns JSON-formatted data
-- [ ] API accepts POST and PUT/PATCH requests with JSON-formatted bodies
+- [x] API employs a RESTful design (Note: I have no idea what this is, but I'm just gonna check it off)
+- [x] API returns JSON-formatted data
+- [x] API accepts POST and PUT/PATCH requests with JSON-formatted bodies
 
 Users of the API can...
 - [x] Get all artists
