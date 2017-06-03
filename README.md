@@ -130,7 +130,7 @@ Users of the API can...
 
 #### Deployment
 
-Note: It's been [DEPLOYED](https://api-music-prac.herokuapp.com/) but there are issues 
+Note: It's been [DEPLOYED](https://evening-ridge-74095.herokuapp.com/playlists) but there are issues 
 		I even added the postgres info to procfile
 - [x] App is deployed to Heroku
 - [x] Link to deployed app is added to README

@@ -105,7 +105,6 @@ app.route('/albums')
     queries.addAlbum(album.artist_id, album.name, album.year)
     res.redirect('/albums')
   })
-
 app.route('/albums/:id')
   .get((req, res, next) => {
     queries.findById(req.params.id, 'albums')
